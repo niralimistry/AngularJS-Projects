@@ -1,0 +1,32 @@
+
+<div>
+    <br>
+ <div class="container">
+        <input type="text" class="form-control" placeholder="Search" ng-model="searchText">
+        <table class="table table-striped">
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Birth Date</th>
+            <th>Age</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <tr>
+                <td><input type="text" ng-model="empId" placeholder="empId"></td>
+                <td><input type="text" ng-model="Name" placeholder="Name"></td>
+                <td><input type="text" ng-model="bdate" placeholder="bDate"></td>
+                <td><input type="text" ng-model="age" placeholder="age"></td>
+
+            </tr>
+            <tr ng-repeat="user in data track by $index">
+                <td>{{user.id}}</td>
+                <td>{{user.firstName}} {{user.mI}} {{user.lastName}}</td>
+                <td>{{user.bDate | date : "dd/MM/y"}}</td>
+                <td>{{user.bDate}}</td>
+                <td><i ng-click="editUser($index)" class="glyphicon glyphicon-pencil"></i></td>
+                <td><i ng-click="deleteUser($index)" class="glyphicon glyphicon-trash"></i></td>
+            </tr>
+        </table>
+    </div>
+    <button class="btn btn-primary" ng-click="add()">AddUser</button>
+    <!--<p class="btn btn-primary"><a href="#!addUser" style="color:white">AddUser</a>-->
+</div>

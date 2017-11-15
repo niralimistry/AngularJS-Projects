@@ -1,0 +1,15 @@
+<div class="container">
+    <h3>TAB 1</h3>
+    Filter:
+    <div ng-controller="tab1Ctrl">
+        <select ng-model="selectedName" ng-options="x for x in names" ng-change="update()">
+        </select>
+        <br>
+        <pre>Selected Filter dropdown item: {{selectedName}}</pre>
+
+        <ul>
+            <li ng-repeat="x in newList">{{x}}</li>
+        </ul>
+    </div>
+
+</div>

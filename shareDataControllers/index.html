@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shareData</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="mainCtrl">
+    message :{{message}}<br>
+    <input type="text" ng-model="message1">
+    <button ng-click="handleEvent1(message1)">Click1</button>
+    <br>
+
+    <div ng-controller="SecondCtrl">
+        message1 : {{message1}}<br>
+        <input type="text" ng-model="message">
+        <button ng-click="handleEvent(message)">Click</button>
+        <br>
+        message2 : {{message2}}<br>
+    </div>
+    <div ng-controller="thirdCtrl">
+        <input type="text" ng-model="message2">
+        <button ng-click="handleEvent2(message2)">Click2</button>
+        <br>
+        <br>
+    </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

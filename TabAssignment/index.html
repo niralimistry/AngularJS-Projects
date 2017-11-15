@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<body ng-app="myApp">
+
+<div class="container">
+    <h3>Tabs</h3>
+    <ul class="list-inline">
+        <li><a href="#!">Tab 1</a></li>
+        <li><a href="#!tab2">Tab 2</a></li>
+        <li><a href="#!tab3">Tab 3</a></li>
+    </ul>
+</div>
+<div ng-view></div>
+
+<script>
+    var app = angular.module("myApp", ["ngRoute"]);
+    app.config(function ($routeProvider) {
+        $routeProvider
+            .when("/", {
+                templateUrl: "tab1.html",
+                controller: "tab1Ctrl"
+            })
+            .when("/tab2", {
+                templateUrl: "tab2.html",
+                controller: "tab2Ctrl"
+            })
+            .when("/tab3", {
+                templateUrl: "tab3.html",
+                controller: "tab3Ctrl"
+            });
+    });
+
+    app.controller('tab1Ctrl', function ($scope) {
+        $scope.names = ["ShowAll", "Text", "Photos", "Videos"];
+        $scope.oldList = ["text1.txt", "text2.txt", "photo1.jpg", "photo2.jpg", "video1.mp4", "video2.mp4"];
+        var z = $scope.oldList;
+        $scope.update = function () {
+            var x = $scope.selectedName;
+            if (x === "Text") {
+                $scope.newList = [];
+                for (var i = 0; i < $scope.oldList.length; i++) {
+                    var y = $scope.oldList[i];
+                    if (y.includes(".txt")) {
+                        $scope.newList.push(y);
+                    }
+                }
+            }
+            else if (x === "Photos") {
+                $scope.newList = [];
+                for (var i = 0; i < $scope.oldList.length; i++) {
+                    var y = $scope.oldList[i];
+                    if (y.includes(".jpg")) {
+                        $scope.newList.push(y);
+                    }
+                }
+            }
+
+            else if (x === "Videos") {
+                $scope.newList = [];
+                for (var i = 0; i < $scope.oldList.length; i++) {
+                    var y = $scope.oldList[i];
+                    if (y.includes(".mp4")) {
+                        $scope.newList.push(y);
+                    }
+                }
+            }
+            else if (x === "ShowAll") {
+                $scope.newList = [];
+                $scope.newList = $scope.oldList;
+            }
+        }
+    });
+    app.controller('tab2Ctrl', function ($scope) {
+        $scope.newList = [];
+        $scope.images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"];
+        $scope.select = function (i) {
+            $scope.firstImage = this.images[i];
+        }
+    });
+    app.controller('tab3Ctrl', function ($scope) {
+        $scope.oldItems = ["item1", "item2", "item3", "item4"];
+        var old = $scope.oldItems;
+        $scope.updateList = function () {
+            var newItem = $scope.item;
+            old.pop();
+            old.unshift(newItem);
+            newItem="";
+        };
+    });
+</script>
+</body>
+</html>

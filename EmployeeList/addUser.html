@@ -1,0 +1,30 @@
+<div>
+<div class="container">
+    <div class="form-group">
+            <label for="empID">Emp ID</label>
+            <input class="form-control" id="empID" ng-model="newUser.id"
+                   placeholder="Enter Emp ID" required>
+        </div>
+        <div class="form-group">
+            <label for="fName">First Name</label>
+            <input type="text" class="form-control" id="fName" ng-model="newUser.firstName"
+                   placeholder="Enter First Name" maxlength="15" required>
+        </div>
+        <div class="form-group">
+            <label for="mI">Middle Initial</label>
+            <input type="text" class="form-control" id="mI" ng-model="newUser.mI"
+                   placeholder="Enter Middle Initial" maxlength="1" required>
+        </div>
+        <div class="form-group">
+            <label for="fName">Last Name</label>
+            <input type="text" class="form-control" id="lName" ng-model="newUser.lastName"
+                   placeholder="Enter Last Name" maxlength="15" required>
+        </div>
+        <div class="form-group">
+            <label for="bDate">Birthdate</label>
+            <input class="form-control" id="bDate" ng-model="newUser.bDate"
+                   placeholder="Enter BirthDate" required>
+        </div>
+        <button ng-click="save()" class="btn btn-primary">Save</button>
+</div>
+</div>

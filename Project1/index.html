@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="app.js"></script>
+<body>
+
+<div ng-controller="todoCtrl">
+
+    <h2>My Todo List</h2>
+
+    <form ng-submit="todoAdd()">
+        <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+        <input type="submit" value="Add New">
+    </form>
+
+    <br>
+
+    <div ng-repeat="x in todoList">
+        <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+    </div>
+
+    <p><button ng-click="remove()">Remove marked</button></p>
+
+    <form name="uform" novalidate>
+        <input type="text" ng-model="uname" name="uname" ng-minlength="2"
+               ng-maxlength="5" ng-pattern="/[a-zA-Z]/" required>
+        <div ng-show="uform.$invalid && uform.$dirty">
+            <span ng-show="uform.uname.$invalid && uform.uname.$error.minlength">
+                Enter name in minlength
+            </span>
+            <span ng-show="uform.uname.$invalid && uform.uname.$error.maxlength">
+                Enter name in maxlength
+            </span>
+            <span ng-show="uform.uname.$invalid && uform.uname.$error.pattern">
+                Enter only alphabets
+            </span>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>

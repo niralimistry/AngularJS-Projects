@@ -1,0 +1,15 @@
+<div class="container">
+    <h3>Tab 2</h3>
+
+    <div class="row" style="width:500px;height:500px;">
+        <img src="{{firstImage}}" class="thumbnail" alt="" style="width:500px;height:500px;">
+    </div>
+    <div class="row">
+        <div ng-repeat="x in images" index="$index" style="float:left">
+            <a href="" class="thumbnail" ng-click="select($index)">
+                <img src="{{x}}" alt="Generic placeholder thumbnail" style="width:100px;height:100px">
+            </a>
+        </div>
+    </div>
+
+</div>

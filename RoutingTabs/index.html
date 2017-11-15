@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+<nav>
+    <ul>
+        <li><a href="#!">HTML</a></li>
+        <li><a href="#!CSS">CSS</a></li>
+        <li><a href="#!JS">Javascript</a></li>
+    </ul>
+</nav>
+<div ng-view></div>
+
+<script>
+    var app = angular.module("myApp", ["ngRoute"]);
+    app.config(function($routeProvider) {
+        $routeProvider.when("/", {
+                templateUrl : "HTML.html",
+                controller : "mainCtrl"
+            })
+            .when("/CSS", {
+                templateUrl : "CSS.html",
+                controller : "mainCtrl"
+            })
+            .when("/JS", {
+                templateUrl : "JS.html",
+                controller : "mainCtrl"
+            });
+    });
+
+    app.controller('mainCtrl',function mainCtrl(){
+
+    });
+</script>
+</body>
+</html>

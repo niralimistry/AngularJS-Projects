@@ -1,0 +1,18 @@
+.male{
+    background-color:orange;
+}
+
+.female{
+    background-color:deeppink;
+}
+
+.sDiv{
+    border:5px solid red;
+    float:left;
+    height:100px;
+    width:200px;
+    padding:10px 0 0 10px;
+    border-radius:5px;
+    margin:5px;
+    word-wrap:break-word;
+}

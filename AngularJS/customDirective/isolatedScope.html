@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+    {{name}}
+    <side-bar user="user1" display='displayValue()' flavor="{{fruit}}"></side-bar>
+    <side-bar user="user2"></side-bar>
+</div>
+<script>
+    var app = angular.module("myApp", []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.user1 = {fn:'john',ln:'doe'};
+        $scope.user2 = {fn:'Nirali',ln:'mistry'};
+        $scope.displayValue = function(){
+            alert("hello this is alert box");
+        }
+        $scope.fruit = 'strawberry';
+    });
+    app.directive('sideBar', function () {
+        return {
+            restrict: 'AECM',
+            template: '<nav>' + '<ul>' + '<li>{{user.fn}}</li>' + '<li>{{user.ln}}</li>' +
+            '<li><button ng-click="display()">Click</button></li>'+ '</ul>' + '</nav>' +'<p>{{flavor}}</p>',
+            scope:{
+                user:'=',
+                display:'&',
+                flavor:'@'
+            }
+        }
+    });
+</script>
+</body>
+</html>

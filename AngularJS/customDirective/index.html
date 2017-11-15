@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+    {{name}}
+    <side-bar></side-bar>
+<div side-bar></div>
+<div class="side-bar"></div>
+
+<!-- directive: side-bar -->
+</div>
+<script>
+    var app = angular.module("myApp", []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.name = 'john';
+    });
+    app.directive('sideBar', function () {
+        return {
+            restrict: 'AECM',
+            template: '<nav>' + '<ul>' + '<li>Home</li>' + '<li>About</li>' + '<li>ContactUS</li>' + '</ul>' + '</nav>',
+           replace: true,
+            scope: false,
+            controller: function ($scope) {
+                $scope.name = 'jay';
+            }
+        }
+    });
+</script>
+</body>
+</html>
