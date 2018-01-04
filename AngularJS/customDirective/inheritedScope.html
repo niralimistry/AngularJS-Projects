@@ -25,8 +25,8 @@
         return {
             restrict: 'AECM',
             template: '<nav>' + '<ul>' + '<li>Home</li>' + '<li>About</li>' + '<li>ContactUS</li>' + '</ul>' + '</nav>',
-           replace: true,
-            scope: false,
+            replace: true,
+            scope: true,
             controller: function ($scope) {
                 $scope.name = 'jay';
             }
